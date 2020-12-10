@@ -1,10 +1,4 @@
 
-# class Node(object):
-#     def __init__(self, value, parent):
-#         self.value = value
-#         self.children = []
-#     def add_child(self, obj):
-#         self.children.append(obj)
 
 def reducetree(tree):
     cuttree={}
@@ -58,24 +52,6 @@ def y2020_d10_star02_pathcount(tree,calltimes=0,key=0):
         pathcount+=y2020_d10_star02_pathcount(tree,calltimes+1,child)    
     return pathcount
 
-def f(T, k):
-  if not T["children"]:
-    return [0, 0]
-
-  result = [0, 0]
-
-  for c in T["children"]:
-    [a, b] = f(c, k)
-    result[1] += a + b
-
-    if T["value"] >= k <= c["value"]:
-      # One valid path from T to c
-      # plus extending all the paths
-      # that start at c
-      result[0] += 1 + a
-
-  return result
-
 def y2020_d10_star02(input):
     
     tree={}
@@ -123,51 +99,6 @@ def y2020_d10_star02(input):
             tree[lines[x]]["pathcount"]+=tree[p]["pathcount"]
         
     return tree[lines[len(lines)-1]]["pathcount"]
-
-
-#     prevadapter=walladapter
-#     for x in range(0,len(lines)):
-#         if not tree.get(lines[x]):
-#             tree[lines[x]]={}
-#             tree[lines[x]]["children"]=[]
-#             tree[lines[x]]["parentcount"]=0
-#         for z in range(1,len(lines)):
-#             if lines[z]!=lines[x]:
-#                 if not tree.get(lines[z]):
-#                     tree[lines[z]]={}
-#                     tree[lines[z]]["children"]=[]
-#                     tree[lines[z]]["parentcount"]=0
-#                 if (lines[z]-1) == prevadapter or (lines[z]-2) == prevadapter or (lines[z]-3) == prevadapter: 
-#                     if not lines[z] in tree[prevadapter]["children"]:
-#                         tree[prevadapter]["children"].append(lines[z])
-#                         tree[lines[z]]["parentcount"]+=1
-                    
-#         prevadapter=lines[x]
-    
-    
-    
-
-    # totalpaths=1
-    # for x in tree.keys():
-    #     if x!= lines[len(lines)-1]:
-    #         #print(abs(len(tree[x]["children"])-tree[x]["parentcount"]))
-    #         pc=abs(len(tree[x]["children"])-tree[x]["parentcount"])
-    #         tree[x]["paths"]=abs(len(tree[x]["children"])-tree[x]["parentcount"])
-    #         if pc>1:
-    #             totalpaths*=tree[x]["paths"]
-    #     print(f"{tree[x] = } {pc =} { totalpaths = }")
-
-    # print(f"Total Paths: {totalpaths = }")
-
-    #print(f"{len(tree.keys()) = } {tree = }")
-
-    #return tree[devicejolts]["parentcount"]
-    #return y2020_d10_star02_pathcount(tree)
-    #newtree = reducetree(tree)
-    #print(f"{len(newtree.keys()) = } {newtree = }")
-    #return 0
-    #return y2020_d10_star02_pathcount(newtree)
-    return totalpaths
 
 
 def getInput():
