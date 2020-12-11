@@ -251,5 +251,4 @@ if __name__ == "__main__":
 
     print(f"TestInput2: {y2020_d10_star02(getTestInput2())}")
 
-
     print(f"Final Input: {y2020_d10_star02(getInput())}")

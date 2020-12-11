@@ -1,0 +1,1 @@
+Mostly exports of the code from the jupyter notebook, but cleaned up a bit. tested? ierno.
